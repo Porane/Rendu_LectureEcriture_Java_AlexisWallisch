@@ -8,15 +8,18 @@ public class Main
 
 		try 
 		{
+			//Lecture d'un fichier texte existant
 			BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream("montexte.in.txt")));
 			String phrase;
 			
+			//Test si une phrase est présente et lancement d'une procédure si c'est le cas
 			if((phrase = buff.readLine())!= null) 
 			{
 				CompteurVoyelles(phrase);
 			}
 			buff.close();
 		}
+		//S'il y a une erreur lors de la lecture du fichier texte
 		catch(Exception e)
 		{
 			System.out.println("Erreur lors de la lecture : ");
@@ -34,6 +37,7 @@ public class Main
 		int compteurU = 0;
 		int compteurY = 0;
 		
+		//Lecture de la phrase par le programme, à chaque voyelle il ajoute 1 à la variable correspondante
 		for(int x = 0; x < phrase.length(); x++)
 		{
 			switch(phrase.charAt(x))
@@ -60,6 +64,7 @@ public class Main
 		}
 		try
 		{
+			//Création d'un fichier texte notifiant les occurrences de chaque voyelle
 			BufferedWriter writer = new BufferedWriter(new FileWriter(new File("voyelles.out.txt")));
 					
 			writer.write("Nombre de A : " + compteurA + "\n");
@@ -71,6 +76,7 @@ public class Main
 			
 			writer.close();
 		}
+		//S'il y a une erreur lors de la création du fichier
 		catch(Exception e2)
 		{
 			System.out.println("Erreur lors de l'écriture : ");
